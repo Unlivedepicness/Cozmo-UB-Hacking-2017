@@ -35,7 +35,7 @@ def _convert_num(num):
     if num < 20:
         return nums[num]
 
-    tens = num / 10
+    tens = (num // 10) * 10
     ones = num % 10
 
     return nums[tens] + ' ' + nums[ones]
@@ -60,7 +60,7 @@ def _humanize(hours, mins):
         mins = _convert_num(0) + ' ' + _convert_num(mins)
     else:
         mins = _convert_num(mins)
-        
+
     if am:
         ampm = "A M"
     else:

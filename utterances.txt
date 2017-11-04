@@ -9,3 +9,9 @@ TalkIntent lets talk
 TalkIntent lets have a conversation
 TalkIntent talk to me
 TalkIntent speak to me
+TakePictureIntent take my picture
+TakePictureIntent take our picture
+TakePictureIntent take a picture of me
+TakePictureIntent take a picture of us
+RickRollIntent rickroll me
+RickRollIntent rick roll me

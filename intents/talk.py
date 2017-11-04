@@ -3,6 +3,7 @@ import cozmo
 import cozmo_speech_recognition as csr
 
 from cleverwrap import CleverWrap
+from cozmo import logger
 
 CLEVERBOT_API_KEY = "CC59kXXxNA8GzoL1x51AyEFxMYg"
 
@@ -14,9 +15,11 @@ def intent_talk(robot: cozmo.robot.Robot):
     while True:
         speech = csr.wait_for_speech(robot)
 
-        if csr.loose_match(speech, 'bye', 1) or csr.loose_match(speech, 'goodbye', 1) or csr.loose_match(speech, 'good bye', 1):
+        if csr.loose_matches_any(speech, ['bye', 'goodbye', 'good bye'], 1):
             robot.say_text('Goodbye').wait_for_completed()
             return
 
         reply = cb.say(speech)
+        logger.info('Cleverbot says: %s' % reply)
+
         robot.say_text(reply).wait_for_completed()

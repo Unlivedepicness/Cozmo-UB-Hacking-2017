@@ -7,16 +7,20 @@ from intents.pass_butter import intent_pass_butter
 from intents.hello_world import intent_hello_world
 from intents.get_time import intent_get_time
 from intents.talk import intent_talk
+from intents.twitter_message import intent_twitter_message
+from intents.rickroll import intent_rickroll
 
 # Words that trigger a command to begin
 activate_commands = ["cozmo", "cosmo", "cosimo", "kozmo", "kosmo", "kosimo", "osmo"]
 
 
 def cozmo_setup_intents():
-    cid.register_intent('PassButterIntent', intent_pass_butter)
-    cid.register_intent('HelloWorldIntent', intent_hello_world)
-    cid.register_intent('TimeIntent',       intent_get_time)
-    cid.register_intent('TalkIntent',       intent_talk)
+    cid.register_intent('PassButterIntent',     intent_pass_butter)
+    cid.register_intent('HelloWorldIntent',     intent_hello_world)
+    cid.register_intent('TimeIntent',           intent_get_time)
+    cid.register_intent('TalkIntent',           intent_talk)
+    cid.register_intent('TakePictureIntent',    intent_twitter_message)
+    cid.register_intent('RickRollIntent',       intent_rickroll)
 
 
 def cozmo_init(robot: cozmo.robot.Robot):
@@ -46,14 +50,6 @@ def cozmo_init(robot: cozmo.robot.Robot):
                 robot.say_text('What?').wait_for_completed()
 
 
-def test():
-    from cleverwrap import CleverWrap
+cozmo.run_program(cozmo_init, use_viewer=True)
 
-    cb = CleverWrap("CC59kXXxNA8GzoL1x51AyEFxMYg")
-
-    while True:
-        reply = cb.say(input())
-        print(reply)
-
-
-cozmo.run_program(cozmo_init)
+# cozmo.run_program(intent_rickroll)

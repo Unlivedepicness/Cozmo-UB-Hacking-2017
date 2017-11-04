@@ -36,7 +36,15 @@ def loose_match(words, expression, threshold=0.6):
         if target in words:
             matched_words += 1
 
-    return matched_words / len(expression) > threshold
+    return matched_words / len(expression) >= threshold
+
+
+def loose_matches_any(words, expressions, threshold=0.6):
+    for expression in expressions:
+        if loose_match(words, expression, threshold):
+            return True
+
+    return False
 
 
 def _listen(timeout, phrase_time_limit):
