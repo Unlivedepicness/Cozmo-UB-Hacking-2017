@@ -1,2 +1,4 @@
 PassButterIntent you pass butter
 PassButterIntent you will pass butter
+HelloWorldIntent say hello world
+HelloWorldIntent say hi world
