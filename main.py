@@ -5,6 +5,7 @@ import cozmo_intent_dispatcher as cid
 # Load intents
 from intents.pass_butter import intent_pass_butter
 from intents.hello_world import intent_hello_world
+from intents.get_time import intent_get_time
 
 # Words that trigger a command to begin
 activate_commands = ["cozmo", "cosmo", "cosimo", "kozmo", "kosmo", "kosimo", "osmo"]
@@ -13,6 +14,7 @@ activate_commands = ["cozmo", "cosmo", "cosimo", "kozmo", "kosmo", "kosimo", "os
 def cozmo_setup_intents():
     cid.register_intent('PassButterIntent', intent_pass_butter)
     cid.register_intent('HelloWorldIntent', intent_hello_world)
+    cid.register_intent('TimeIntent', intent_get_time)
 
 
 def cozmo_init(robot: cozmo.robot.Robot):

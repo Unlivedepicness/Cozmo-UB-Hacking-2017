@@ -2,3 +2,6 @@ PassButterIntent you pass butter
 PassButterIntent you will pass butter
 HelloWorldIntent say hello world
 HelloWorldIntent say hi world
+TimeIntent what is the time
+TimeIntent what time is it
+TimeIntent tell me the time

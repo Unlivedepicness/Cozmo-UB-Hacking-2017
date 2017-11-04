@@ -2,7 +2,7 @@ import cozmo
 
 
 def intent_pass_butter(robot: cozmo.robot.Robot):
-    robot.move_lift(0)
+    robot.move_lift(1)
     robot.set_head_angle(cozmo.robot.MIN_HEAD_ANGLE).wait_for_completed()
 
     robot.say_text('Oh my god').wait_for_completed()
