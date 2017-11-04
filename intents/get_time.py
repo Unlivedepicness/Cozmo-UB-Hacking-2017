@@ -60,9 +60,7 @@ def _humanize(hours, mins):
         mins = _convert_num(0) + ' ' + _convert_num(mins)
     else:
         mins = _convert_num(mins)
-
-    ampm = ""
-
+        
     if am:
         ampm = "A M"
     else:

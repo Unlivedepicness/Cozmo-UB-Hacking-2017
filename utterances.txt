@@ -5,3 +5,7 @@ HelloWorldIntent say hi world
 TimeIntent what is the time
 TimeIntent what time is it
 TimeIntent tell me the time
+TalkIntent lets talk
+TalkIntent lets have a conversation
+TalkIntent talk to me
+TalkIntent speak to me
