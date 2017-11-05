@@ -9,7 +9,6 @@ from intents.get_time import intent_get_time
 from intents.talk import intent_talk
 from intents.twitter_message import intent_twitter_message
 from intents.rickroll import intent_rickroll
-from intents.solve_maze import intent_solve_maze
 from intents.jokes import intent_jokes, intent_toggle_offensive_mode
 from intents.get_weather import intent_get_weather
 from intents.mean import intent_mean
@@ -86,4 +85,3 @@ def cozmo_init(robot: cozmo.robot.Robot):
 
 
 cozmo.run_program(cozmo_init, use_viewer=True)
-# cozmo.run_program(intent_solve_maze, use_viewer=True)
