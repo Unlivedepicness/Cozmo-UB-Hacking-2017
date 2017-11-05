@@ -29,4 +29,5 @@ def intent_pass_butter(robot: cozmo.robot.Robot):
         action.wait_for_completed()
 
         robot.drive_straight(distance_mm(150), speed_mmps(50)).wait_for_completed()
+        robot.drive_straight(distance_mm(-150), speed_mmps(50)).wait_for_completed()
         robot.say_text('oh my god', duration_scalar=1.8).wait_for_completed()

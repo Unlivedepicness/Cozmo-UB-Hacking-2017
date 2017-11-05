@@ -38,6 +38,7 @@ def cozmo_setup_intents():
     cid.register_intent('JokeIntent',           intent_jokes)
     cid.register_intent('JokeToggleIntent',     intent_toggle_offensive_mode)
     cid.register_intent('PushToMasterIntent',   create_response_intent('You get a minus one'))
+    cid.register_intent('DaddyIntent',          create_response_intent('Not you, because that is creepy'))
     cid.register_intent('DidYouKnowIntent',     create_response_intent(['Did you know I don\'t care', 'No', 'Of course I am all knowing']))
     cid.register_intent('WeatherIntent',        intent_get_weather)
 

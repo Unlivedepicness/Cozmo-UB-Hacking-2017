@@ -25,11 +25,8 @@ def intent_twitter_message(robot: cozmo.robot.Robot):
         logger.info('Face found')
 
         robot.say_text('three').wait_for_completed()
-        time.sleep(0.1)
         robot.say_text('two').wait_for_completed()
-        time.sleep(0.1)
         robot.say_text('one').wait_for_completed()
-        time.sleep(0.1)
         robot.say_text('Say cheese!').wait_for_completed()
 
         logger.info('Taking picture ...')

@@ -54,3 +54,7 @@ WeatherIntent whether
 WeatherIntent what is the whether
 WeatherIntent you tell whether
 JokeToggleIntent toggle joke safe mode
+DaddyIntent whose youre daddy
+DaddyIntent whose your daddy
+DaddyIntent whos youre daddy
+DaddyIntent whos your daddy
