@@ -11,7 +11,7 @@ from intents.twitter_message import intent_twitter_message
 from intents.rickroll import intent_rickroll
 from intents.solve_maze import intent_solve_maze
 from intents.jokes import intent_jokes
-from intents.mean import intent_mean
+from intents.get_weather import intent_get_weather
 
 from intents.response import create_response_intent
 
@@ -38,6 +38,7 @@ def cozmo_setup_intents():
     cid.register_intent('JokeIntent',           intent_jokes)
     cid.register_intent('PushToMasterIntent',   create_response_intent('You get a minus one'))
     cid.register_intent('DidYouKnowIntent',     create_response_intent(['Did you know I don\'t care', 'No', 'Of course I am all knowing']))
+    cid.register_intent('WeatherIntent',        intent_get_weather)
 
 
 def cozmo_init(robot: cozmo.robot.Robot):
@@ -82,10 +83,5 @@ def cozmo_init(robot: cozmo.robot.Robot):
                 robot.say_text('What?').wait_for_completed()
 
 
-def test(robot: cozmo.robot.Robot):
-    while True:
-        robot.say_text(input('>'), duration_scalar=1.2).wait_for_completed()
-
-
 cozmo.run_program(cozmo_init, use_viewer=True)
-#cozmo.run_program(intent_solve_maze, use_viewer=True)
+# cozmo.run_program(intent_solve_maze, use_viewer=True)

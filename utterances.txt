@@ -47,3 +47,9 @@ PushToMasterIntent i pushed to master
 PushToMasterIntent what happens if i push to master
 PushToMasterIntent push to master
 DidYouKnowIntent did you know
+WeatherIntent what is the weather
+WeatherIntent weather
+WeatherIntent you tell weather
+WeatherIntent whether
+WeatherIntent what is the whether
+WeatherIntent you tell whether
