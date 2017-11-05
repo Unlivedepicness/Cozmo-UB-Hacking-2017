@@ -11,6 +11,7 @@ from intents.twitter_message import intent_twitter_message
 from intents.rickroll import intent_rickroll
 from intents.solve_maze import intent_solve_maze
 from intents.jokes import intent_jokes
+from intents.mean import intent_mean
 
 from intents.response import create_response_intent
 
@@ -31,10 +32,12 @@ def cozmo_setup_intents():
     cid.register_intent('TakePictureIntent',    intent_twitter_message)
     cid.register_intent('RickRollIntent',       intent_rickroll)
     cid.register_intent('StarCraftIntent',      create_response_intent('In the rear with the gear'))
-    cid.register_intent('MeanIntent',           create_response_intent('Up yours'))
+    cid.register_intent('MeanIntent',           intent_mean)
     cid.register_intent('ComplimentIntent',     create_response_intent('I love you too'))
-    cid.register_intent('GoodBoyIntent',        create_response_intent('Me. I am a good boy.'))
+    cid.register_intent('GoodBoyIntent',        create_response_intent(['Me. I am a good boy.', 'Are you proud of me?']))
     cid.register_intent('JokeIntent',           intent_jokes)
+    cid.register_intent('PushToMasterIntent',   create_response_intent('You get a minus one'))
+    cid.register_intent('DidYouKnowIntent',     create_response_intent(['Did you know I don\'t care', 'No', 'Of course I am all knowing']))
 
 
 def cozmo_init(robot: cozmo.robot.Robot):
@@ -58,7 +61,7 @@ def cozmo_init(robot: cozmo.robot.Robot):
 
         # Enable built-in freeplay while waiting for a voice command
         robot.start_freeplay_behaviors()
-        csr.wait_for_any(activate_commands)
+        csr.wait_for_any(robot, activate_commands)
         robot.stop_freeplay_behaviors()
 
         robot.say_text('What is my purpose?').wait_for_completed()
@@ -79,5 +82,10 @@ def cozmo_init(robot: cozmo.robot.Robot):
                 robot.say_text('What?').wait_for_completed()
 
 
+def test(robot: cozmo.robot.Robot):
+    while True:
+        robot.say_text(input('>'), duration_scalar=1.2).wait_for_completed()
+
+
 cozmo.run_program(cozmo_init, use_viewer=True)
-# cozmo.run_program(intent_solve_maze, use_viewer=True)
+#cozmo.run_program(intent_solve_maze, use_viewer=True)

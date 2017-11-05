@@ -1,4 +1,5 @@
 import cozmo
+import random
 
 
 def create_response_intent(response):
@@ -9,6 +10,9 @@ def create_response_intent(response):
     """
 
     def intent_response(robot: cozmo.robot.Robot):
-        robot.say_text(response).wait_for_completed()
+        if isinstance(response, list):
+            robot.say_text(random.choice(response)).wait_for_completed()
+        else:
+            robot.say_text(response).wait_for_completed()
 
     return intent_response

@@ -66,18 +66,25 @@ def loose_matches_any(words, expressions, threshold=0.6):
     return False
 
 
-def _listen(timeout, phrase_time_limit):
+def _listen(robot: cozmo.robot.Robot, timeout, phrase_time_limit):
     """
     Listen for speech input until some is found
+    :param robot: Cozmo robot
     :param timeout: The timeout for listening
     :param phrase_time_limit: The max length of the phrase
     :return: The detected speech
     """
-    logger.info('Starting audio listening, timeout = %d, phrase_time_limit = %d' % (timeout, phrase_time_limit))
+    logger.info('Starting audio listening, timeout = %s, phrase_time_limit = %s' % (timeout, phrase_time_limit))
+
+    # Enable backpack lights to signify listening
+    robot.set_all_backpack_lights(cozmo.lights.blue_light)
 
     # Grab some audio from the microphone
     with sr.Microphone() as source:
         audio = r.listen(source, timeout=timeout, phrase_time_limit=phrase_time_limit)
+
+    # Disable backpack lights during processing
+    robot.set_backpack_lights_off()
 
     logger.info('Recognizing audio ...')
 
@@ -95,15 +102,16 @@ def _listen(timeout, phrase_time_limit):
     return None
 
 
-def wait_for_any(valid_words):
+def wait_for_any(robot: cozmo.robot.Robot, valid_words):
     """
     Wait until the speech input contains any of the inputted words
+    :param robot: Cozmo robot
     :param valid_words: Words to check for
     :return: None
     """
     while True:
         # Grab some user speech
-        words = _listen(timeout=1, phrase_time_limit=3)
+        words = _listen(robot, timeout=None, phrase_time_limit=3)
 
         # If nothing was found, try again
         if words is None:
@@ -125,14 +133,8 @@ def wait_for_speech(robot: cozmo.robot.Robot):
     :return: Speech text
     """
     while True:
-        # Enable backpack lights to signify listening
-        robot.set_all_backpack_lights(cozmo.lights.blue_light)
-
         # Grab user speech
-        words = _listen(timeout=1, phrase_time_limit=3)
-
-        # Disable backpack lights during processing
-        robot.set_backpack_lights_off()
+        words = _listen(robot, timeout=None, phrase_time_limit=3)
 
         if words is None:
             robot.say_text('Speak clearly, you dummy!').wait_for_completed()

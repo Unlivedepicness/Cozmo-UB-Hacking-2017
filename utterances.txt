@@ -5,19 +5,21 @@ HelloWorldIntent say hi world
 TimeIntent what is the time
 TimeIntent what time is it
 TimeIntent tell me the time
+TimeIntent you tell time
 TalkIntent lets talk
 TalkIntent lets have a conversation
 TalkIntent talk to me
 TalkIntent speak to me
-TalkIntent you tell time
 TalkIntent talk to me
 TalkIntent talk to us
+TalkIntent you talk to me
+TalkIntent you talk to us
 TakePictureIntent take my picture
 TakePictureIntent take our picture
 TakePictureIntent take a picture of me
 TakePictureIntent take a picture of us
-TakePictureIntent take pictures
-TakePictureIntent take picture
+TakePictureIntent you take pictures
+TakePictureIntent you take picture
 RickRollIntent rickroll me
 RickRollIntent rick roll me
 RickRollIntent you rickroll
@@ -28,7 +30,6 @@ StarCraftIntent you play starcraft
 StarCraftIntent you play star craft
 StarCraftIntent pretend to play starcraft
 StarCraftIntent pretend to play star craft
-MeanIntent i don't like you
 MeanIntent i dont like you
 MeanIntent you are dumb
 MeanIntent you are stupid
@@ -42,3 +43,7 @@ GoodBoyIntent who is a good boy
 JokeIntent tell me a joke
 JokeIntent you tell jokes
 JokeIntent you tell joke
+PushToMasterIntent i pushed to master
+PushToMasterIntent what happens if i push to master
+PushToMasterIntent push to master
+DidYouKnowIntent did you know
