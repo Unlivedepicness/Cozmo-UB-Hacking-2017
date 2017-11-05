@@ -5,11 +5,14 @@ import cozmo.anim
 
 # Load intents
 from intents.pass_butter import intent_pass_butter
-from intents.hello_world import intent_hello_world
 from intents.get_time import intent_get_time
 from intents.talk import intent_talk
 from intents.twitter_message import intent_twitter_message
 from intents.rickroll import intent_rickroll
+from intents.solve_maze import intent_solve_maze
+from intents.jokes import intent_jokes
+
+from intents.response import create_response_intent
 
 # Words that trigger a command to begin
 activate_commands = ["cozmo", "cosmo", "cosimo", "kozmo", "kosmo", "kosimo", "osmo"]
@@ -22,11 +25,16 @@ def cozmo_setup_intents():
     :return: None
     """
     cid.register_intent('PassButterIntent',     intent_pass_butter)
-    cid.register_intent('HelloWorldIntent',     intent_hello_world)
+    cid.register_intent('HelloWorldIntent',     create_response_intent('Hello, world!'))
     cid.register_intent('TimeIntent',           intent_get_time)
     cid.register_intent('TalkIntent',           intent_talk)
     cid.register_intent('TakePictureIntent',    intent_twitter_message)
     cid.register_intent('RickRollIntent',       intent_rickroll)
+    cid.register_intent('StarCraftIntent',      create_response_intent('In the rear with the gear'))
+    cid.register_intent('MeanIntent',           create_response_intent('Up yours'))
+    cid.register_intent('ComplimentIntent',     create_response_intent('I love you too'))
+    cid.register_intent('GoodBoyIntent',        create_response_intent('Me. I am a good boy.'))
+    cid.register_intent('JokeIntent',           intent_jokes)
 
 
 def cozmo_init(robot: cozmo.robot.Robot):
@@ -72,3 +80,4 @@ def cozmo_init(robot: cozmo.robot.Robot):
 
 
 cozmo.run_program(cozmo_init, use_viewer=True)
+# cozmo.run_program(intent_solve_maze, use_viewer=True)

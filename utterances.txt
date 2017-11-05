@@ -9,9 +9,36 @@ TalkIntent lets talk
 TalkIntent lets have a conversation
 TalkIntent talk to me
 TalkIntent speak to me
+TalkIntent you tell time
+TalkIntent talk to me
+TalkIntent talk to us
 TakePictureIntent take my picture
 TakePictureIntent take our picture
 TakePictureIntent take a picture of me
 TakePictureIntent take a picture of us
+TakePictureIntent take pictures
+TakePictureIntent take picture
 RickRollIntent rickroll me
 RickRollIntent rick roll me
+RickRollIntent you rickroll
+RickRollIntent you rick roll
+StarCraftIntent play starcraft
+StarCraftIntent play star craft
+StarCraftIntent you play starcraft
+StarCraftIntent you play star craft
+StarCraftIntent pretend to play starcraft
+StarCraftIntent pretend to play star craft
+MeanIntent i don't like you
+MeanIntent i dont like you
+MeanIntent you are dumb
+MeanIntent you are stupid
+ComplimentIntent i like you
+ComplimentIntent you are nice
+ComplimentIntent i love you
+ComplimentIntent youre alright
+ComplimentIntent you are good
+GoodBoyIntent whos a good boy
+GoodBoyIntent who is a good boy
+JokeIntent tell me a joke
+JokeIntent you tell jokes
+JokeIntent you tell joke
