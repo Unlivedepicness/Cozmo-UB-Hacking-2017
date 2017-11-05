@@ -58,3 +58,7 @@ DaddyIntent whose youre daddy
 DaddyIntent whose your daddy
 DaddyIntent whos youre daddy
 DaddyIntent whos your daddy
+RapIntent rap for me
+RapIntent sing me a rap
+RapIntent can you rap
+RapIntent you rap

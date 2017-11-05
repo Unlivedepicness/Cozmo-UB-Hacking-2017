@@ -12,6 +12,7 @@ from intents.rickroll import intent_rickroll
 from intents.jokes import intent_jokes, intent_toggle_offensive_mode
 from intents.get_weather import intent_get_weather
 from intents.mean import intent_mean
+from intents.rap import intent_rap
 
 from intents.response import create_response_intent
 
@@ -41,6 +42,7 @@ def cozmo_setup_intents():
     cid.register_intent('DaddyIntent',          create_response_intent('Not you, because that is creepy'))
     cid.register_intent('DidYouKnowIntent',     create_response_intent(['Did you know I don\'t care', 'No', 'Of course I am all knowing']))
     cid.register_intent('WeatherIntent',        intent_get_weather)
+    cid.register_intent('RapIntent',            intent_rap)
 
 
 def cozmo_init(robot: cozmo.robot.Robot):
