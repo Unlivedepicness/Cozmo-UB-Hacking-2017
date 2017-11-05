@@ -53,3 +53,4 @@ WeatherIntent you tell weather
 WeatherIntent whether
 WeatherIntent what is the whether
 WeatherIntent you tell whether
+JokeToggleIntent toggle joke safe mode
