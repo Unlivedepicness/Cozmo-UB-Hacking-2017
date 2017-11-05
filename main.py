@@ -11,6 +11,7 @@ from intents.twitter_message import intent_twitter_message
 from intents.rickroll import intent_rickroll
 from intents.solve_maze import intent_solve_maze
 from intents.jokes import intent_jokes
+from intents.get_weather import intent_get_weather
 
 from intents.response import create_response_intent
 
@@ -35,6 +36,7 @@ def cozmo_setup_intents():
     cid.register_intent('ComplimentIntent',     create_response_intent('I love you too'))
     cid.register_intent('GoodBoyIntent',        create_response_intent('Me. I am a good boy.'))
     cid.register_intent('JokeIntent',           intent_jokes)
+    cid.register_intent('WeatherIntent',        intent_get_weather)
 
 
 def cozmo_init(robot: cozmo.robot.Robot):

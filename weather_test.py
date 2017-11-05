@@ -2,7 +2,7 @@ from weather import *
 
 weather = Weather()
 
-loc = 'buffalo'
+loc = 'starcraft'
 
 location = weather.lookup_by_location(loc)
 condition = location.condition()
