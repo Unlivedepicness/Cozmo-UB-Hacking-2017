@@ -42,7 +42,7 @@ def intent_twitter_message(robot: cozmo.robot.Robot):
 
         robot.say_text('I will tweet ' + speech).wait_for_completed()
 
-        tweet = '@UBHacking ' + speech
+        tweet = '@UBHacking ' + speech + ' #UBHacking'
 
         logger.info('Tweeting: %s' % tweet)
 

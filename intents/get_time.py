@@ -34,6 +34,8 @@ def _convert_num(num):
 
     if num < 20:
         return nums[num]
+    elif num % 10 == 0:
+        return nums[num]
 
     tens = (num // 10) * 10
     ones = num % 10

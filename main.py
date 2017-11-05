@@ -1,6 +1,7 @@
 import cozmo
 import cozmo_speech_recognition as csr
 import cozmo_intent_dispatcher as cid
+import cozmo.anim
 
 # Load intents
 from intents.pass_butter import intent_pass_butter
@@ -15,6 +16,11 @@ activate_commands = ["cozmo", "cosmo", "cosimo", "kozmo", "kosmo", "kosimo", "os
 
 
 def cozmo_setup_intents():
+    """
+    Setup intent callbacks
+    Intents are configured int `utterances.txt`
+    :return: None
+    """
     cid.register_intent('PassButterIntent',     intent_pass_butter)
     cid.register_intent('HelloWorldIntent',     intent_hello_world)
     cid.register_intent('TimeIntent',           intent_get_time)
@@ -24,26 +30,41 @@ def cozmo_setup_intents():
 
 
 def cozmo_init(robot: cozmo.robot.Robot):
+    """
+    Main entry point
+    :param robot: Populated by Cozmo SDK
+    :return: None
+    """
+
     # Reset to default position
     robot.move_lift(-3)
     robot.set_head_angle(cozmo.robot.MAX_HEAD_ANGLE).wait_for_completed()
 
+    # Load the intents for the speech recognition
     csr.load_intents()
+
+    # Load the intent callbacks
     cozmo_setup_intents()
 
     while True:
 
-        # Wait for activate command
+        # Enable built-in freeplay while waiting for a voice command
+        robot.start_freeplay_behaviors()
         csr.wait_for_any(activate_commands)
+        robot.stop_freeplay_behaviors()
+
         robot.say_text('What is my purpose?').wait_for_completed()
 
         # Try to receive a valid command
         while True:
+            # Grab user speech input
             speech = csr.wait_for_speech(robot)
 
+            # Attempt to process the user intent
             intent = csr.process_intent(speech)
 
             if intent is not None:
+                # An intent was found, dispatch it then go back to idle mode
                 cid.dispatch(intent, robot)
                 break
             else:
@@ -51,5 +72,3 @@ def cozmo_init(robot: cozmo.robot.Robot):
 
 
 cozmo.run_program(cozmo_init, use_viewer=True)
-
-# cozmo.run_program(intent_rickroll)
